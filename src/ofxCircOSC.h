@@ -13,7 +13,12 @@ class ofxCircOSC{
 
 
 public:
-	int X,Y,R;
-	void dibujarCirculo(int x, int y, int r);
+	int X,Y,R,colorR,colorG,colorB,tamano;
+	void dibujarCirculo(int x, int y);
 	void dibujar();
+	void setup(int colorSetupR,int colorSetupG,int colorSetupB, int tamanoSetup);
+	void setup(int tamanoSetup);
+
+
+
 };
