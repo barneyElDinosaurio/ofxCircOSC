@@ -1,8 +1,8 @@
 //
-//  ofxMilib.cpp
+//  ofxCircOSC.cpp
 //
 //
-//  Created by marioAlzate on 1/10/14.
+//  Created by marioAlzate on 17/ago/15.
 //
 //
 
@@ -13,13 +13,15 @@ class ofxCircOSC{
 
 
 public:
-	int X,Y,R,colorR,colorG,colorB,tamano;
+	bool isOnn = false;
+	int X,Y,R,colorR,colorG,colorB,tamano;//Particle variables settings
+	
 	void draw(int x, int y);
 	void draw();
 	void setup(int colorSetupR,int colorSetupG,int colorSetupB, int tamanoSetup);
 	void setup(int tamanoSetup);
-	void move2MouseCute(int xMouse, int yMouse);
 	void mouseCool(int xMouse, int yMouse);
-
-
+	bool isOn(int xMouse, int yMouse);//func for known if the mouse is on the particle
+	void isOnPutBig(int xMouse, int yMouse, int tamanoPutBig);//func for put big if the mouse is on the particle
+	void isOnParty(int xMouse, int yMouse);//random colors if the mouse is on
 };
