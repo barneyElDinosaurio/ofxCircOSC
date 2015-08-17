@@ -14,11 +14,12 @@ class ofxCircOSC{
 
 public:
 	int X,Y,R,colorR,colorG,colorB,tamano;
-	void dibujarCirculo(int x, int y);
-	void dibujar();
+	void draw(int x, int y);
+	void draw();
 	void setup(int colorSetupR,int colorSetupG,int colorSetupB, int tamanoSetup);
 	void setup(int tamanoSetup);
-
+	void move2MouseCute(int xMouse, int yMouse);
+	void mouseCool(int xMouse, int yMouse);
 
 
 };
