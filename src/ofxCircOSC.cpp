@@ -43,43 +43,39 @@ void ofxCircOSC::mouseCool(int xMouse, int yMouse){//movement cool with mousePos
 bool ofxCircOSC::isOn(int xMouse, int yMouse){//verify the if the mouse is on a particule 
    	//This func need be init in update function, 
 	//(i.e. obj.isOn(mouseX,mouseY)) calling to mouse positions;
-    if(ofDist(X,Y,xMouse,yMouse)<tamano){
-    	isOnn = true;
-    }
-
+    if(ofDist(X,Y,xMouse,yMouse)<tamano)isOnn = true;
 }
 
 void ofxCircOSC::isOnParty(int xMouse, int yMouse){//verify mousePos and do a party particle color 
    	//This func need be init in update function, 
 	//(i.e. obj.isOnPartu(mouseX,mouseY)) calling to mouse positions;
-    if(ofDist(X,Y,xMouse,yMouse)<tamano){
+    if(ofDist(X,Y,xMouse,yMouse)<tamano){//BAD PLAY OVERLOAD OPERATION
     	colorR = ofRandom(0,250);
 		colorG = ofRandom(0,250);
 		colorB = ofRandom(0,250); 
     }
-
 }
 
 void ofxCircOSC::isOnPutBig(int xMouse, int yMouse, int tamanoPutBig){//verify the if the mouse is on a particule 
    	//This func need be init in update function, 
 	//(i.e. obj.isOnPutBig(mouseX,mouseY)) calling to mouse positions;
-    if(ofDist(X,Y,xMouse,yMouse)<tamano){
-    	myfont.drawString(nombre, 50,100);//TEST
+    if(ofDist(X,Y,xMouse,yMouse)<tamano){//BAD PLAY OVERLOAD OPERATION
     	if(tamano<tamanoPutBig)tamano++;
     }else if(tamano>R)tamano--;
-//This is a dirty play, can be optimized.
+	//This is a dirty play, can be optimized.
 }
 
 void ofxCircOSC::setInfo(string Nombre){//init in Setup or update id u change the typeFont or name
-nombre=Nombre;
-myfont.loadFont("arial.ttf", 30);//typeFont and size
+	nombre=Nombre;
+	myfont.loadFont("arial.ttf", 30);//typeFont and size
 }
 
-void ofxCircOSC::drawInfo(){//init in Draw
-myfont.drawString(nombre, 50,100);//typeFont
+void ofxCircOSC::drawInfo(int x, int y){//init in Draw
+	//Draw the info the x y coordinates
+	myfont.drawString(nombre, x,y);//typeFont
 }
 
 void ofxCircOSC::drawInfoIfMoOn(int xMouse,int yMouse){//init in Draw with mousePos values
-//This func shows the an info particle if the mouse is on
-if(ofDist(X,Y,xMouse,yMouse)<tamano)myfont.drawString(nombre, 50,100);
-}
+	//This func shows the an info particle if the mouse is on
+	if(ofDist(X,Y,xMouse,yMouse)<tamano)myfont.drawString(nombre, X,Y);
+}	
