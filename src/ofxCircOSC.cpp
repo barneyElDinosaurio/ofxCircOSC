@@ -64,7 +64,22 @@ void ofxCircOSC::isOnPutBig(int xMouse, int yMouse, int tamanoPutBig){//verify t
    	//This func need be init in update function, 
 	//(i.e. obj.isOnPutBig(mouseX,mouseY)) calling to mouse positions;
     if(ofDist(X,Y,xMouse,yMouse)<tamano){
+    	myfont.drawString(nombre, 50,100);//TEST
     	if(tamano<tamanoPutBig)tamano++;
     }else if(tamano>R)tamano--;
 //This is a dirty play, can be optimized.
+}
+
+void ofxCircOSC::setInfo(string Nombre){//init in Setup or update id u change the typeFont or name
+nombre=Nombre;
+myfont.loadFont("arial.ttf", 30);//typeFont and size
+}
+
+void ofxCircOSC::drawInfo(){//init in Draw
+myfont.drawString(nombre, 50,100);//typeFont
+}
+
+void ofxCircOSC::drawInfoIfMoOn(int xMouse,int yMouse){//init in Draw with mousePos values
+//This func shows the an info particle if the mouse is on
+if(ofDist(X,Y,xMouse,yMouse)<tamano)myfont.drawString(nombre, 50,100);
 }
