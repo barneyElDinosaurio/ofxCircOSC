@@ -25,8 +25,9 @@ public:
 	void isOnPutBig(int xMouse, int yMouse, int tamanoPutBig);//func for put big if the mouse is on the particle
 	void isOnParty(int xMouse, int yMouse);//random colors if the mouse is on
 	void setInfo(string Nombre);
-	void drawInfo();
-	void drawInfoIfMoOn(int xMouse,int yMouse);
+	void drawInfo(int x, int y);
+	void isOnDrawInfo(int xMouse,int yMouse);
+	void isOnDrawInfo(int xMouse,int yMouse,int x,int y);
 
 	ofTrueTypeFont myfont;
 };

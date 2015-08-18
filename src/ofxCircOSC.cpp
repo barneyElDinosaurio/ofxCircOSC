@@ -75,7 +75,13 @@ void ofxCircOSC::drawInfo(int x, int y){//init in Draw
 	myfont.drawString(nombre, x,y);//typeFont
 }
 
-void ofxCircOSC::drawInfoIfMoOn(int xMouse,int yMouse){//init in Draw with mousePos values
+//Overload func isOnDrawInfo
+void ofxCircOSC::isOnDrawInfo(int xMouse,int yMouse){//init in Draw with mousePos values
 	//This func shows the an info particle if the mouse is on
 	if(ofDist(X,Y,xMouse,yMouse)<tamano)myfont.drawString(nombre, X,Y);
+}	
+
+void ofxCircOSC::isOnDrawInfo(int xMouse,int yMouse,int x, int y){//init in Draw with mousePos values
+	//This func shows the an info particle if the mouse is on
+	if(ofDist(X,Y,xMouse,yMouse)<tamano)myfont.drawString(nombre, x,y);
 }	
