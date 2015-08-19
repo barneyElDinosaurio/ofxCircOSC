@@ -121,3 +121,23 @@ void ofxCircOSC::isOnSendOSC(string rutaOSC,int datoOSC,int xMouse,int yMouse){/
 		sender.sendMessage(m);//send
 	}
 } 
+
+void ofxCircOSC::isOnSendOSC(string rutaOSC,string datoOSC,int xMouse,int yMouse){//send float data via OSC
+	//this funk need be initialized in update function
+	if(ofDist(X,Y,xMouse,yMouse)<tamano){	
+		ofxOscMessage m;//create object
+		m.setAddress(rutaOSC);//rute
+		m.addStringArg(datoOSC);//data
+		sender.sendMessage(m);//send
+	}
+} 
+
+void ofxCircOSC::isOnSendOSC(string rutaOSC,float datoOSC,int xMouse,int yMouse){//send float data via OSC
+	//this funk need be initialized in update function
+	if(ofDist(X,Y,xMouse,yMouse)<tamano){	
+		ofxOscMessage m;//create object
+		m.setAddress(rutaOSC);//rute
+		m.addFloatArg(datoOSC);//data
+		sender.sendMessage(m);//send
+	}
+} 

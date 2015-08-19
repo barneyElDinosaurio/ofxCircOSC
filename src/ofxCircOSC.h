@@ -35,6 +35,8 @@ public:
 	void sendOSC(string rutaOSC,string datoOSC);
 	void sendOSC(string rutaOSC,float datoOSC);
 	void isOnSendOSC(string rutaOSC,int datoOSC,int xMouse,int yMouse);
+	void isOnSendOSC(string rutaOSC,string datoOSC,int xMouse,int yMouse);
+	void isOnSendOSC(string rutaOSC,float datoOSC,int xMouse,int yMouse);
 
 	//RESOLUME FUNKS
 	void show(int channel,int column);//show a video(MAKING)
