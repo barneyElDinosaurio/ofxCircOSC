@@ -8,16 +8,16 @@
 
 #pragma once
 #include "ofMain.h"
+#include "ofxOsc.h"
 
 class ofxCircOSC{
 
-
 public:
-	bool isOnn = false;
+	bool isOnn;
 	int X,Y,R,colorR,colorG,colorB,tamano;//Particle variables settings
 	string nombre;
-	void draw(int x, int y);
-	void draw();
+	void draw(int x, int y);//Draw particle in xy pos
+	void draw();//Draw particle in Rand pos
 	void setup(int colorSetupR,int colorSetupG,int colorSetupB, int tamanoSetup);
 	void setup(int tamanoSetup);
 	void mouseCool(int xMouse, int yMouse);
@@ -29,5 +29,20 @@ public:
 	void isOnDrawInfo(int xMouse,int yMouse);
 	void isOnDrawInfo(int xMouse,int yMouse,int x,int y);
 
-	ofTrueTypeFont myfont;
+	//OSC FUNKS
+	void setupOSC(string ip,int port);
+	void sendOSC(string rutaOSC,int datoOSC);
+	void sendOSC(string rutaOSC,string datoOSC);
+	void sendOSC(string rutaOSC,float datoOSC);
+	void isOnSendOSC(string rutaOSC,int datoOSC,int xMouse,int yMouse);
+
+	//RESOLUME FUNKS
+	void show(int channel,int column);//show a video(MAKING)
+	void videoOff(int channel, int column);//MAKING
+
+
+	ofTrueTypeFont myfont;//Fonts class
+	ofxOscSender sender;
+
+
 };

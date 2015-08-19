@@ -85,3 +85,39 @@ void ofxCircOSC::isOnDrawInfo(int xMouse,int yMouse,int x, int y){//init in Draw
 	//This func shows the an info particle if the mouse is on
 	if(ofDist(X,Y,xMouse,yMouse)<tamano)myfont.drawString(nombre, x,y);
 }	
+
+void ofxCircOSC::setupOSC(string ip,int port){//Setup for OSC sender
+		sender.setup(ip, port);
+}
+
+//OVERLOADS FUNKS sendOSC
+void ofxCircOSC::sendOSC(string rutaOSC,int datoOSC){//send data int via OSC
+		ofxOscMessage m;//create object
+		m.setAddress(rutaOSC);//rute
+		m.addIntArg(datoOSC);//data
+		sender.sendMessage(m);//send
+} 
+
+void ofxCircOSC::sendOSC(string rutaOSC,string datoOSC){//send data string via OSC
+		ofxOscMessage m;//create object
+		m.setAddress(rutaOSC);//rute
+		m.addStringArg(datoOSC);//data
+		sender.sendMessage(m);//send
+} 
+
+void ofxCircOSC::sendOSC(string rutaOSC,float datoOSC){//send float data via OSC
+		ofxOscMessage m;//create object
+		m.setAddress(rutaOSC);//rute
+		m.addFloatArg(datoOSC);//data
+		sender.sendMessage(m);//send
+} 
+
+void ofxCircOSC::isOnSendOSC(string rutaOSC,int datoOSC,int xMouse,int yMouse){//send float data via OSC
+	//this funk need be initialized in update function
+	if(ofDist(X,Y,xMouse,yMouse)<tamano){	
+		ofxOscMessage m;//create object
+		m.setAddress(rutaOSC);//rute
+		m.addIntArg(datoOSC);//data
+		sender.sendMessage(m);//send
+	}
+} 
