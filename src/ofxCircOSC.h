@@ -11,11 +11,14 @@
 #include "ofxOsc.h"
 
 class ofxCircOSC{
-
+	
 public:
+	float int2float(int in);
+
 	bool isOnn;
-	int X,Y,R,colorR,colorG,colorB,tamano;//Particle variables settings
-	string nombre;
+	float pruebon;
+	int X,Y,R,colorR,colorG,colorB,tamano,resPort;//Particle variables settings
+	string nombre,resIp;
 	void draw(int x, int y);//Draw particle in xy pos
 	void draw();//Draw particle in Rand pos
 	void setup(int colorSetupR,int colorSetupG,int colorSetupB, int tamanoSetup);
@@ -39,12 +42,15 @@ public:
 	void isOnSendOSC(string rutaOSC,float datoOSC,int xMouse,int yMouse);
 
 	//RESOLUME FUNKS
-	void show(int channel,int column);//show a video(MAKING)
-	void videoOff(int channel, int column);//MAKING
+
+	void setupResolume(string ip,int port);
+	void show(int layer,int clip);//show a video(MAKING)
+	void videoOff(int layer, int clip);//MAKING
+	void rotateVideo(float rotateX,float rotateY,string layer, string clip);//MAKING
 
 
 	ofTrueTypeFont myfont;//Fonts class
-	ofxOscSender sender;
+	ofxOscSender sender,resSender;//OSC Sender and Resolume OSC sender
 
 
 };

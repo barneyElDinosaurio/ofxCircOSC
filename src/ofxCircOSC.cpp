@@ -90,6 +90,10 @@ void ofxCircOSC::setupOSC(string ip,int port){//Setup for OSC sender
 		sender.setup(ip, port);
 }
 
+void ofxCircOSC::setupResolume(string ip,int port){//Setup for OSC Resolume sender
+		resSender.setup(ip, port);
+}
+
 //OVERLOADS FUNKS sendOSC
 void ofxCircOSC::sendOSC(string rutaOSC,int datoOSC){//send data int via OSC
 		ofxOscMessage m;//create object
@@ -141,3 +145,20 @@ void ofxCircOSC::isOnSendOSC(string rutaOSC,float datoOSC,int xMouse,int yMouse)
 		sender.sendMessage(m);//send
 	}
 } 
+
+
+void ofxCircOSC::rotateVideo(float rotateX,float rotateY,string layer, string clip){
+	//Rotate a video clip selected from Resolume in X Y 
+		rotateX = ofMap(rotateX,0.0,ofToFloat(ofToString(ofGetWidth)),0.0,1.0);//Remap values for RESOLUME
+		ofxOscMessage mr;
+		mr.setAddress("/layer"+layer+"/clip"+clip+"/video/rotatex/values");
+		mr.addFloatArg(rotateX);
+		resSender.sendMessage(mr);
+
+		rotateY = ofMap(rotateY,0.0,ofToFloat(ofToString(ofGetWidth)),0.0,1.0);//Remap values for RESOLUME
+		mr.setAddress("/layer"+layer+"/clip"+clip+"/video/rotatey/values");
+		mr.addFloatArg(rotateY);
+		resSender.sendMessage(mr);
+}
+
+
