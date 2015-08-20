@@ -44,9 +44,9 @@ public:
 	//RESOLUME FUNKS
 
 	void setupResolume(string ip,int port);
-	void show(int layer,int clip);//show a video(MAKING)
-	void videoOff(int layer, int clip);//MAKING
-	void rotateVideo(float rotateX,float rotateY,string layer, string clip);//MAKING
+	void show(int layer,int clip);//show a video(COMING)
+	void videoOff(int layer, int clip);//COMING
+	void rotateVideo(float rotateX,float rotateY,string layer, string clip);//rotate videoclips
 
 
 	ofTrueTypeFont myfont;//Fonts class
