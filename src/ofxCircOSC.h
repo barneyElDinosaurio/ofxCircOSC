@@ -1,7 +1,7 @@
 //
 //  ofxCircOSC.cpp
 //
-//
+//	Things.. Pusgmatrix and popmatrix.
 //  Created by marioAlzate on 17/ago/15.
 //
 //
@@ -13,14 +13,13 @@
 class ofxCircOSC{
 	
 public:
-	float int2float(int in);
 
 	bool isOnn;
-	float pruebon;
 	int X,Y,R,colorR,colorG,colorB,tamano,resPort;//Particle variables settings
 	string nombre,resIp;
 	void draw(int x, int y);//Draw particle in xy pos
 	void draw();//Draw particle in Rand pos
+	void draw(ofColor colorCircle);//Draw particle in Rand pos with ofColor
 	void setup(int colorSetupR,int colorSetupG,int colorSetupB, int tamanoSetup);
 	void setup(int tamanoSetup);
 	void mouseCool(int xMouse, int yMouse);
