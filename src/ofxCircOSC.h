@@ -42,7 +42,7 @@ public:
 
 	//RESOLUME FUNKS
 
-	void setupResolume(string ip,int port);
+	void setupResolume(string ipRes,int portRes);
 	void show(int layer,int clip);//show a video(COMING)
 	void videoOff(int layer, int clip);//COMING
 	void rotateVideo(float rotateX,float rotateY,string layer, string clip);//rotate videoclips
