@@ -96,8 +96,8 @@ void ofxCircOSC::setupOSC(string ip,int port){//Setup for OSC sender
 		sender.setup(ip, port);
 }
 
-void ofxCircOSC::setupResolume(string ip,int port){//Setup for OSC Resolume sender
-		resSender.setup(ip, port);
+void ofxCircOSC::setupResolume(string ipRes,int portRes){//Setup for OSC Resolume sender
+		resSender.setup(ipRes, portRes);
 }
 
 //OVERLOADS FUNKS sendOSC
